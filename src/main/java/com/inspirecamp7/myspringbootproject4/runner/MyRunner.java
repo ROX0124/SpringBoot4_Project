@@ -38,6 +38,8 @@ public class MyRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        System.out.println("Logger 구현 클래스명 = " + logger.getClass().getName());
+
         logger.debug("CustomerVO = {}", customVO);
         logger.debug("환경변수 myboot.name = {}", myBootName);
         logger.debug("환경변수 myboot.age = {}", mybootAge);
