@@ -38,17 +38,15 @@ public class MyRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("CustomerVO = " + customVO);
+        logger.debug("CustomerVO = {}", customVO);
+        logger.debug("환경변수 myboot.name = {}", myBootName);
+        logger.debug("환경변수 myboot.age = {}", mybootAge);
+        logger.debug("환경변수 myboot.fullName = {}", environment.getProperty("myboot.fullName"));
 
-        System.out.println("환경변수 myboot.name = " + myBootName);
-        System.out.println("환경변수 myboot.age = " + mybootAge);
-        System.out.println("환경변수 myboot.fullName = " + environment.getProperty("myboot.fullName"));
-
-        System.out.println("MyBootProperties getName() = " + properties.getFullName());
-        System.out.println("MyBootProperties getAge() = " + properties.getAge());
-
-        System.out.println("server.port Program argument 확인 " + args.containsOption("server.port"));
-        System.out.println("myboot.name Program argument 확인 " + args.containsOption("myboot.name"));
+        logger.info("MyBootProperties getName() = {}", properties.getFullName());
+        logger.info("MyBootProperties getAge() = {}", properties.getAge());
+        logger.info("server.port Program argument 확인 {}", args.containsOption("server.port"));
+        logger.info("myboot.name Program argument 확인 {}", args.containsOption("myboot.name"));
 
         //환경변수 목록을 확인하기
         Set<String> optionNames = args.getOptionNames();
